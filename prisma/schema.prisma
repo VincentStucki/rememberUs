@@ -16,7 +16,8 @@ generator client {
 model User {
   id        Int      @id @default(autoincrement())
   email     String   @unique
-  name      String?
+  name      String
+  password  String   // Passwort-Feld hinzufügen
   groups    UserGroup[]
 }
 
@@ -31,6 +32,7 @@ model Post {
   id        Int      @id @default(autoincrement())
   title     String
   content   String
+  imageUrl  String?  // Optionale Bild-URL
   group     Group    @relation(fields: [groupId], references: [id])
   groupId   Int
 }
